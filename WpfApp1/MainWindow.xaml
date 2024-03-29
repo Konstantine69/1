@@ -1,0 +1,35 @@
+﻿<Window x:Class="XMLValidation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="XML Dairy" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Меню -->
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Открыть" Click="OpenButton_Click"/>
+                <MenuItem Header="Создать" Click="CreateButton_Click"/>
+                <MenuItem Header="Сохранить" Click="SaveButton_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Основное содержимое окна -->
+        <ListView Name="ClimbsListView" Grid.Row="1" ItemsSource="{Binding Climbs}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Peak Name" DisplayMemberBinding="{Binding PeakName}" />
+                    <GridViewColumn Width="100" Header="Height" DisplayMemberBinding="{Binding Height}" />
+                    <GridViewColumn Width="100" Header="Country" DisplayMemberBinding="{Binding Country}" />
+                    <GridViewColumn Width="150" Header="Visit Date" DisplayMemberBinding="{Binding VisitDate, StringFormat={}{0:dd.MM.yyyy}}" />
+                    <GridViewColumn Width="100" Header="Climb Time" DisplayMemberBinding="{Binding ClimbTime}" />
+                    <GridViewColumn Width="150" Header="Difficulty Category" DisplayMemberBinding="{Binding DifficultyCategory}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
